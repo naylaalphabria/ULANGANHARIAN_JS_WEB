@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal array</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #008080; 
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #4caf50; 
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #008080; 
+        }
+    </style>
+</head>
+<body>
+    <h1>SOAL ARRAY</h1>
+
+    <script>
+        // Membuat array kendaraan
+        var kendaraanArray = [
+            'mobil', 'motor', 'pesawat', 'kapal', 'sepeda', 
+            'kereta', 'helikopter', 'jetski', 'skuter', 'truk'
+        ];
+
+        // Menampilkan seluruh data di dalam array
+        console.log("Seluruh Data Kendaraan:");
+        for (var i = 0; i < kendaraanArray.length; i++) {
+            console.log(i + 1 + ". " + kendaraanArray[i]);
+        }
+
+        // Mengakses nilai 'mobil' dan menampilkan indeksnya
+        var indeksMobil = kendaraanArray.indexOf('mobil');
+        console.log("\nIndeks 'mobil': " + indeksMobil);
+
+        // Menghapus satu data kendaraan dengan unshift
+        var kendaraanHapus = kendaraanArray.shift();
+        console.log("\nData Kendaraan yang Dihapus: " + kendaraanHapus);
+
+        // Menampilkan data kendaraan setelah penghapusan
+        console.log("\nData Kendaraan Setelah Penghapusan:");
+        for (var i = 0; i < kendaraanArray.length; i++) {
+            console.log(i + 1 + ". " + kendaraanArray[i]);
+        }
+    </script>
+
+    <!-- Back button to index.html -->
+    <form action="index.html">
+        <button type="submit">Back</button>
+    </form>
+</body>
+</html>

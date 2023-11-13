@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soal Operator</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 20px;
+      text-align: center; 
+    }
+    h1 {
+      color: #008080; 
+    }
+
+    #calculator {
+      width: 300px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      font-size: 16px;
+    }
+
+        button:hover {
+            background-color: #008080; 
+    }
+
+    #output {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SOAL OPERATOR</h1>
+
+  <div id="calculator">
+    <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+    <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+    
+    <button onclick="hitung('tambah')">+</button>
+    <button onclick="hitung('kurang')">-</button>
+    <button onclick="hitung('kali')">*</button>
+    <button onclick="hitung('bagi')">/</button>
+    <button onclick="bilanganTerbesar()">Bilangan Terbesar</button>
+
+    <div id="output"></div>
+
+    <!-- Tombol Back untuk kembali ke index.html -->
+    <a href="index.html">
+      <button style="background-color: #ccc; color: #333;">Back</button>
+    </a>
+  </div>
+
+  <script>
+    function hitung(operasi) {
+      var angka1 = parseFloat(document.getElementById('angka1').value);
+      var angka2 = parseFloat(document.getElementById('angka2').value);
+
+      if (isNaN(angka1) || isNaN(angka2)) {
+        document.getElementById('output').innerHTML = 'Masukkan angka yang valid.';
+        return;
+      }
+
+      var hasil;
+
+      switch (operasi) {
+        case 'tambah':
+          hasil = angka1 + angka2;
+          break;
+        case 'kurang':
+          hasil = angka1 - angka2;
+          break;
+        case 'kali':
+          hasil = angka1 * angka2;
+          break;
+        case 'bagi':
+          hasil = angka1 / angka2;
+          break;
+        default:
+          hasil = 'Operasi tidak valid.';
+      }
+
+      document.getElementById('output').innerHTML = 'Hasil: ' + hasil;
+    }
+
+    function bilanganTerbesar() {
+      var angka1 = parseFloat(document.getElementById('angka1').value);
+      var angka2 = parseFloat(document.getElementById('angka2').value);
+
+      if (isNaN(angka1) || isNaN(angka2)) {
+        document.getElementById('output').innerHTML = 'Masukkan angka yang valid.';
+        return;
+      }
+
+      var terbesar = angka1 > angka2 ? angka1 : angka2;
+
+      document.getElementById('output').innerHTML = 'Bilangan Terbesar: ' + terbesar;
+    }
+  </script>
+
+</body>
+</html>

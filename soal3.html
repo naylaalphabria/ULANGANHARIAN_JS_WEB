@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soal Kondisional</title>
+
+  <style>
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #008080; 
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    input {
+      padding: 8px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #output {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SOAL KONDISIONAL</h1>
+
+  <label for="kategori">Pilih Kategori:</label>
+  <input type="text" id="kategori" placeholder="(makanan/minuman)">
+  <button onclick="tampilkanMenu()">Tampilkan Menu</button>
+
+  <div id="output"></div>
+
+  <form action="index.html">
+    <button type="submit">BACK</button>
+  </form>
+
+  <script>
+    function tampilkanMenu() {
+      // Mengambil nilai kategori dari input
+      var kategori = document.getElementById('kategori').value.toLowerCase(); // Mengubah input menjadi huruf kecil
+
+      // Membuat objek menu berdasarkan kategori
+      var menu;
+      if (kategori === 'makanan' || kategori === 'minuman') {
+        if (kategori === 'makanan') {
+          menu = ['bakso', 'mie ayam', 'soto', 'kambing guling', 'ayam bakar', 'sate', 'mie goreng', 'mendoan'];
+        } else if (kategori === 'minuman') {
+          menu = ['es milo', 'es teh manis', 'es jeruk', 'es campur', 'es kopisusu', 'es teh tawar', 'es dawet'];
+        }
+
+        // Menampilkan menu sesuai kategori
+        var output = document.getElementById('output');
+        output.innerHTML = '<p>Menu ' + kategori.charAt(0).toUpperCase() + kategori.slice(1) + ':</p>';
+        output.innerHTML += '<ul>';
+        for (var i = 0; i < menu.length; i++) {
+          output.innerHTML += '<li>' + menu[i] + '</li>';
+        }
+        output.innerHTML += '</ul>';
+      } else {
+        // Jika kategori tidak valid
+        document.getElementById('output').innerHTML = '<p>Pilihan tidak valid. Silahkan pilih menu yang benar.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
